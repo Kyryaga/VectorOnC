@@ -1,13 +1,18 @@
+#ifndef VECTOR_VECTOR_H
+#define VECTOR_VECTOR_H
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <malloc.h>
 #include <stdbool.h>
+#include <malloc.h>
 #include <assert.h>
 
+#define SIZE_MAX 1000000
+
 typedef struct Vector {
-    int *data; // указатель на элементы вектора
-    size_t size; // размер вектора
-    size_t capacity; // вместимость вектора
+    int *data;
+    size_t size;
+    size_t capacity;
 } Vector;
 
 Vector createVector(size_t n);
@@ -35,3 +40,20 @@ void test_pushBack_fullVector();
 void popBack(Vector *v);
 
 void test_popBack_notEmptyVector();
+
+int *atVector(Vector *v, size_t index);
+
+int *back(Vector *v);
+
+int *front(Vector *v);
+
+void test_atVector_notEmptyVector();
+
+void test_atVector_requestToLastElement();
+
+void test_back_oneElementInVector();
+
+void test_front_oneElementInVector();
+
+#endif //VECTOR_VECTOR_H
+
